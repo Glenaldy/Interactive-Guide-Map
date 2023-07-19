@@ -1,0 +1,281 @@
+[
+  {
+    "id": 0,
+    "placeId": 6,
+    "title": "Kyoto-City",
+    "subtitle": "For over 1000 years the capital of Japan",
+    "content": "Kyoto served as Japan's capital and the emperor's residence from 794 until 1868. It is one of the country's ten largest cities with a population of 1.5 million people and a modern face. One of the most famous temple is {place_0}, not to be mistaken for {place_1}. Over the centuries, Kyoto was destroyed by many wars and fires. Still, due to its exceptional historical value, the city was dropped from the list of target cities for the atomic bomb and escaped destruction during World War II. Countless temples, shrines, and other historically priceless structures survive in the city today. In the middle of the city, temple such as {place_2} and {place_3} are really famous. As the heritage city of Japan, Kyoto is filled with temples and cultural places. Enjoy your trip by bicycle as the city is geographically flat and supports bicycle commuters with numerous bike lanes and parking. {place_4} is one of the temple that can be reached with bicycle just east of the Kyoto city. Going a bit further, there's also a small but significant {place_5} just south of Kyoto-city.",
+    "placeReferences": [
+      {
+        "id": 0,
+        "reference": "{place_0}",
+        "text": "Kinkaku-ji (Golden temple)",
+        "place": {
+          "id": 3,
+          "name": "Kinkaku-ji",
+          "pos": {
+            "lat": 35.03966329408966,
+            "lng": 135.72937327551838
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 4
+        }
+      },
+      {
+        "id": 1,
+        "reference": "{place_1}",
+        "text": "Ginkaku-ji (Silver temple)",
+        "place": {
+          "id": 5,
+          "name": "Ginkaku-ji",
+          "pos": {
+            "lat": 35.02702008870461,
+            "lng": 135.7982054406825
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 6
+        }
+      },
+      {
+        "id": 2,
+        "reference": "{place_2}",
+        "text": "Heian Jingu",
+        "place": {
+          "id": 0,
+          "name": "Heian Jingu",
+          "pos": {
+            "lat": 35.01683774677658,
+            "lng": 135.7823037079702
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 1
+        }
+      },
+      {
+        "id": 3,
+        "reference": "{place_3}",
+        "text": "Nanzen-ji",
+        "place": {
+          "id": 2,
+          "name": "Nanzenji-temple",
+          "pos": {
+            "lat": 35.0127240620144,
+            "lng": 135.79452055077542
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 3
+        }
+      },
+      {
+        "id": 4,
+        "reference": "{place_4}",
+        "text": "Kiyomizu-dera",
+        "place": {
+          "id": 1,
+          "name": "Kiyomizu-dera",
+          "pos": {
+            "lat": 34.99602810200204,
+            "lng": 135.784878628573
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 2
+        }
+      },
+      {
+        "id": 5,
+        "reference": "{place_5}",
+        "text": "Tanaka-jinja",
+        "place": {
+          "id": 4,
+          "name": "Tanaka-jinja",
+          "pos": {
+            "lat": 34.928,
+            "lng": 135.741
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 5
+        }
+      }
+    ],
+    "place": {
+      "id": 6,
+      "name": "Kyoto-City",
+      "pos": {
+        "lat": 35.0116,
+        "lng": 135.7681
+      },
+      "type": [
+        "area"
+      ],
+      "article": 0
+    }
+  },
+  {
+    "id": 1,
+    "placeId": 0,
+    "title": "Heian Jingu",
+    "subtitle": "Famous shrine in Kyoto",
+    "content": "Heian Shrine (平安神宮, Heian Jingū) has a relatively short history, dating back just over a hundred years to 1895. The shrine was built on the occasion of the 1100th anniversary of the capital's foundation in Kyoto and is dedicated to the spirits of the first and last emperors who reigned from the city, Emperor Kammu (737-806) and Emperor Komei (1831-1867). Heian is the former name of Kyoto.",
+    "placeReferences": [],
+    "place": {
+      "id": 0,
+      "name": "Heian Jingu",
+      "pos": {
+        "lat": 35.01683774677658,
+        "lng": 135.7823037079702
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 1
+    }
+  },
+  {
+    "id": 2,
+    "placeId": 1,
+    "title": "Kiyomizu-dera",
+    "subtitle": "Subtitles",
+    "content": "Kiyomizudera (清水寺, literally \"Pure Water Temple\") is one of the most celebrated temples of Japan. It was founded in 780 on the site of the Otowa Waterfall in the wooded hills east of Kyoto, and derives its name from the fall's pure waters. The temple was originally associated with the Hosso sect, one of the oldest schools within Japanese Buddhism, but formed its own Kita Hosso sect in 1965. In 1994, the temple was added to the list of UNESCO world heritage sites.",
+    "placeReferences": [],
+    "place": {
+      "id": 1,
+      "name": "Kiyomizu-dera",
+      "pos": {
+        "lat": 34.99602810200204,
+        "lng": 135.784878628573
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 2
+    }
+  },
+  {
+    "id": 3,
+    "placeId": 2,
+    "title": "Nanzenji-temple",
+    "subtitle": "Subtitles",
+    "content": "Nanzenji Temple (南禅寺), whose spacious grounds are located at the base of Kyoto's forested Higashiyama mountains, is one of the most important Zen temples in all of Japan. It is the head temple of one of the schools within the Rinzai sect of Japanese Zen Buddhism and includes multiple subtemples, that make the already large complex of temple buildings even larger.",
+    "placeReferences": [],
+    "place": {
+      "id": 2,
+      "name": "Nanzenji-temple",
+      "pos": {
+        "lat": 35.0127240620144,
+        "lng": 135.79452055077542
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 3
+    }
+  },
+  {
+    "id": 4,
+    "placeId": 3,
+    "title": "Kinkaku-ji",
+    "subtitle": "Subtitles",
+    "content": "Kinkakuji (金閣寺, Golden Pavilion) is a Zen temple in northern Kyoto whose top two floors are completely covered in gold leaf. Formally known as Rokuonji, the temple was the retirement villa of the shogun Ashikaga Yoshimitsu, and according to his will it became a Zen temple of the Rinzai sect after his death in 1408. Kinkakuji was the inspiration for the similarly named {place_0}, built by Yoshimitsu's grandson, Ashikaga Yoshimasa, on the other side of the city a few decades later.",
+    "placeReferences": [
+      {
+        "id": 0,
+        "reference": "{place_0}",
+        "text": "Ginkaku-ji (Silver pavilion)",
+        "place": {
+          "id": 5,
+          "name": "Ginkaku-ji",
+          "pos": {
+            "lat": 35.02702008870461,
+            "lng": 135.7982054406825
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 6
+        }
+      }
+    ],
+    "place": {
+      "id": 3,
+      "name": "Kinkaku-ji",
+      "pos": {
+        "lat": 35.03966329408966,
+        "lng": 135.72937327551838
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 4
+    }
+  },
+  {
+    "id": 5,
+    "placeId": 4,
+    "title": "Tanaka-jinja",
+    "subtitle": "Subtitles",
+    "content": "Tanaka-jinja is a place",
+    "placeReferences": [],
+    "place": {
+      "id": 4,
+      "name": "Tanaka-jinja",
+      "pos": {
+        "lat": 34.928,
+        "lng": 135.741
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 5
+    }
+  },
+  {
+    "id": 6,
+    "placeId": 5,
+    "title": "Ginkaku-ji",
+    "subtitle": "Subtitles",
+    "content": "Ginkakuji (銀閣寺, Silver Pavilion) is a Zen temple along Kyoto's eastern mountains (Higashiyama). In 1482, shogun Ashikaga Yoshimasa built his retirement villa on the grounds of today's temple, modeled after {place_0}, his grandfather's retirement villa at the base of Kyoto's northern mountains (Kitayama). The villa was converted into a Zen temple after Yoshimasa's death in 1490.",
+    "placeReferences": [
+      {
+        "id": 0,
+        "reference": "{place_0}",
+        "text": "Kinkaku-ji (Golden Pavilion)",
+        "place": {
+          "id": 3,
+          "name": "Kinkaku-ji",
+          "pos": {
+            "lat": 35.03966329408966,
+            "lng": 135.72937327551838
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 4
+        }
+      }
+    ],
+    "place": {
+      "id": 5,
+      "name": "Ginkaku-ji",
+      "pos": {
+        "lat": 35.02702008870461,
+        "lng": 135.7982054406825
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 6
+    }
+  }
+]

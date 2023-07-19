@@ -1,0 +1,281 @@
+[
+  {
+    "id": 0,
+    "placeId": 6,
+    "title": "Suscipit Laboriosam",
+    "subtitle": "Etiam nisl magna, pretium ut blandit ut, condimentum a Japan",
+    "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae {place_0}vitae dicta sunt explicabo {place_1}. Nemo enim un ipsam voluptatem quia voluptas {place_2} sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt {place_3}. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis {place_4} nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, {place_5} vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+    "placeReferences": [
+      {
+        "id": 0,
+        "reference": "{place_0}",
+        "text": "Enim Ad (Ad Nostra)",
+        "place": {
+          "id": 3,
+          "name": "Enim Ad",
+          "pos": {
+            "lat": 35.03966329408966,
+            "lng": 135.72937327551838
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 4
+        }
+      },
+      {
+        "id": 1,
+        "reference": "{place_1}",
+        "text": "Enim Ab (Ab Nostra)",
+        "place": {
+          "id": 5,
+          "name": "Enim Ab",
+          "pos": {
+            "lat": 35.02702008870461,
+            "lng": 135.7982054406825
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 6
+        }
+      },
+      {
+        "id": 2,
+        "reference": "{place_2}",
+        "text": "Omnis Iste Natus",
+        "place": {
+          "id": 0,
+          "name": "Omnis Iste Natus",
+          "pos": {
+            "lat": 35.01683774677658,
+            "lng": 135.7823037079702
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 1
+        }
+      },
+      {
+        "id": 3,
+        "reference": "{place_3}",
+        "text": "Autem",
+        "place": {
+          "id": 2,
+          "name": "Autem Vel",
+          "pos": {
+            "lat": 35.0127240620144,
+            "lng": 135.79452055077542
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 3
+        }
+      },
+      {
+        "id": 4,
+        "reference": "{place_4}",
+        "text": "Ipsam Voluptatem",
+        "place": {
+          "id": 1,
+          "name": "Ipsam Voluptatem",
+          "pos": {
+            "lat": 34.99602810200204,
+            "lng": 135.784878628573
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 2
+        }
+      },
+      {
+        "id": 5,
+        "reference": "{place_5}",
+        "text": "Ullam Corporis",
+        "place": {
+          "id": 4,
+          "name": "Ullam Corporis",
+          "pos": {
+            "lat": 34.928,
+            "lng": 135.741
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 5
+        }
+      }
+    ],
+    "place": {
+      "id": 6,
+      "name": "Suscipit Laboriosam",
+      "pos": {
+        "lat": 35.0116,
+        "lng": 135.7681
+      },
+      "type": [
+        "area"
+      ],
+      "article": 0
+    }
+  },
+  {
+    "id": 1,
+    "placeId": 0,
+    "title": "Omnis Iste Natus",
+    "subtitle": "Cras vel in Suscipit Laboriosam",
+    "content": "Omnis Iste Natus (Omnis Natus) accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "placeReferences": [],
+    "place": {
+      "id": 0,
+      "name": "Omnis Iste Natus",
+      "pos": {
+        "lat": 35.01683774677658,
+        "lng": 135.7823037079702
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 1
+    }
+  },
+  {
+    "id": 2,
+    "placeId": 1,
+    "title": "Ipsam Voluptatem",
+    "subtitle": "Nam a elit id est rhoncus luctus.",
+    "content": "Ipsam Voluptatem (Ipsam Voluptatemagus) quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+    "placeReferences": [],
+    "place": {
+      "id": 1,
+      "name": "Ipsam Voluptatem",
+      "pos": {
+        "lat": 34.99602810200204,
+        "lng": 135.784878628573
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 2
+    }
+  },
+  {
+    "id": 3,
+    "placeId": 2,
+    "title": "Autem Vel",
+    "subtitle": "Cras vel odio dolor.",
+    "content": "Autem Vel (〇〇), earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    "placeReferences": [],
+    "place": {
+      "id": 2,
+      "name": "Autem Vel",
+      "pos": {
+        "lat": 35.0127240620144,
+        "lng": 135.79452055077542
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 3
+    }
+  },
+  {
+    "id": 4,
+    "placeId": 3,
+    "title": "Enim Ad",
+    "subtitle": "Mauris pharetra, ipsum non mattis iaculis",
+    "content": "Enim Ad (〇〇寺, Enim Adnum) autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? {place_0}, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    "placeReferences": [
+      {
+        "id": 0,
+        "reference": "{place_0}",
+        "text": "Enim Ab (〇〇寺, Enim Abra)",
+        "place": {
+          "id": 5,
+          "name": "Enim Ab",
+          "pos": {
+            "lat": 35.02702008870461,
+            "lng": 135.7982054406825
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 6
+        }
+      }
+    ],
+    "place": {
+      "id": 3,
+      "name": "Enim Ad",
+      "pos": {
+        "lat": 35.03966329408966,
+        "lng": 135.72937327551838
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 4
+    }
+  },
+  {
+    "id": 5,
+    "placeId": 4,
+    "title": "Ullam Corporis",
+    "subtitle": "Nullam velit purus",
+    "content": "Ullam Corporis isa jubealanum",
+    "placeReferences": [],
+    "place": {
+      "id": 4,
+      "name": "Ullam Corporis",
+      "pos": {
+        "lat": 34.928,
+        "lng": 135.741
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 5
+    }
+  },
+  {
+    "id": 6,
+    "placeId": 5,
+    "title": "Enim Ab",
+    "subtitle": "In maximus suscipit",
+    "content": "Enim Ab (〇〇寺, Enim Abra) commodo at nisi in, maximus aliquet nibh. Vivamus dui elit, fringilla vel vulputate non, tempus a ligula. Maecenas eget facilisis lectus. Praesent suscipit, tellus nec ultrices accumsan, diam turpis vulputate risus, non efficitur sapien ante ut est. In eget lorem ante. {place_0} tortor mauris, pharetra vel ligula vestibulum, malesuada placerat ligula. Morbi bibendum purus sit amet orci sodales, non suscipit metus egestas. In non aliquam justo. Nam a elit id est rhoncus luctus. Pellentesque tristique nulla id vestibulum rutrum. Aenean vitae dictum est.",
+    "placeReferences": [
+      {
+        "id": 0,
+        "reference": "{place_0}",
+        "text": "Enim Ad (〇〇寺, Enim Adnum)",
+        "place": {
+          "id": 3,
+          "name": "Enim Ad",
+          "pos": {
+            "lat": 35.03966329408966,
+            "lng": 135.72937327551838
+          },
+          "type": [
+            "temple"
+          ],
+          "article": 4
+        }
+      }
+    ],
+    "place": {
+      "id": 5,
+      "name": "Enim Ab",
+      "pos": {
+        "lat": 35.02702008870461,
+        "lng": 135.7982054406825
+      },
+      "type": [
+        "temple"
+      ],
+      "article": 6
+    }
+  }
+]
