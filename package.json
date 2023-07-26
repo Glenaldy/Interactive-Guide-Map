@@ -2,6 +2,10 @@
   "name": "interactive-map-guide",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+  "node": "18.14.2",
+  "npm": "9.8.1"
+},
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
     "@reduxjs/toolkit": "^1.9.5",
