@@ -4,16 +4,16 @@ import {setCurrentArticle} from "../redux/placeSlice";
 import {RootState} from "../redux/store";
 
 interface Props {
+    full: boolean
 }
 
-const ApplicationLogo = ({}: Props) => {
+const ApplicationLogo = ({full}: Props) => {
     const dispatch = useDispatch()
-    const splitOrientation = useSelector((state: RootState) => state.globalStates.splitOrientation)
     return (
         <div className={"application-logo cursor-click"} onClick={() =>
             dispatch(setCurrentArticle(null))
         }>
-            {splitOrientation === "vertical" ?
+            {full ?
                 <img src={"logo-full.svg"} className={"logo"}/> :
                 <img src={"logo.svg"} className={"logo"}/>
             }

@@ -24,6 +24,11 @@ const HistoryBar = () => {
 
     }
 
+    if (currentArticle && currentArticle.place) {
+        console.log(currentArticle.place.region)
+        console.log(currentArticle.place.prefecture)
+        console.log(currentArticle.place.city)
+    }
     return (
         <div className={"guide-history"}>
             {

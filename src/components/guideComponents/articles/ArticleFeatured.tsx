@@ -1,6 +1,6 @@
 import {Article} from "../../Article";
 import reactStringReplace from "react-string-replace";
-import PlaceSpanReference from "./PlaceSpanReference";
+import SpecialText from "./SpecialText";
 import PlaceCard from "../../PlaceCard";
 import React from "react";
 import {useSelector} from "react-redux";

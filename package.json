@@ -29,6 +29,8 @@
     "typescript": "^5.1.3"
   },
   "scripts": {
+    "postinstall": "npm run webpack",
+    "webpack": "webpack",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

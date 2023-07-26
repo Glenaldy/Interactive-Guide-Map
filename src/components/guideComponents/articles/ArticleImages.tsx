@@ -14,7 +14,7 @@ const ArticleImages = ({currentArticle}: Props) => {
                 {currentArticle.images.map(image =>
                     <Carousel.Item key={"article-image-" + image.identifier}>
                         <img className="d-block w-100"
-                             src={"http://localhost:8080/images/" + image.identifier}
+                             src={`${process.env.REACT_APP_BACKEND_SERVER_URL}/images/${image.identifier}?api_key=${process.env.REACT_APP_BACKEND_SERVER_API_KEY}`}
                              alt={image.title}
                         />
                         <Carousel.Caption>

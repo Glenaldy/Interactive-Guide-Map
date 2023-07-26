@@ -1,7 +1,7 @@
 import React from "react";
 import {Article} from "../../Article";
 import reactStringReplace from "react-string-replace";
-import PlaceSpanReference from "./PlaceSpanReference";
+import SpecialText from "./SpecialText";
 import PlaceCard from "../../PlaceCard";
 
 interface Props {
@@ -16,7 +16,7 @@ const ArticleText = ({currentArticle}: Props) => {
                 {reactStringReplace(currentArticle.content, /({[a-zA-Z0-9_]+})/g, (match, i) => {
                     const placeReference = currentArticle?.placeReferences.find(place => place.reference === match)
                     return placeReference ?
-                        <PlaceSpanReference
+                        <SpecialText
                             key={`place-span-key_${placeReference.reference}`}
                             reference={placeReference}/>
                         : ''

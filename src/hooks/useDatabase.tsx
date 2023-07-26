@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function useDatabase<T>(source: string, type: new (...args: any[]) => T): [Array<T>, boolean]  {
+function useDatabase<T>(source: string, type: new (...args: any[]) => T): [Array<T>, boolean] {
     const fetchData = async () =>
         await fetch(source)
             .then(res => res.json())

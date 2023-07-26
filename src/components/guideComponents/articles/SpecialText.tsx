@@ -15,9 +15,7 @@ interface Props {
     reference: PlaceReference
 }
 
-const PlaceSpanReference = ({reference}: Props) => {
-
-
+const SpecialText = ({reference}: Props) => {
     const dispatch = useDispatch()
     const handleMouseEnter = (item: number) => {
         dispatch(setHoveredPlace(item))
@@ -46,4 +44,4 @@ const PlaceSpanReference = ({reference}: Props) => {
     )
 }
 
-export default PlaceSpanReference
+export default SpecialText

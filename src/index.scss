@@ -1,5 +1,5 @@
 $color-line-dark: #000000;
-$color-line-light: #818181;
+$color-line-light: rgba(151, 0, 0, 0.1);
 
 $line-light-thick: solid 2px $color-line-dark;
 $line-medium: solid 1px $color-line-dark;
@@ -220,7 +220,6 @@ Start
 
 
 .application-logo {
-  text-align: right;
   padding: 0;
   margin: 0;
 
@@ -256,7 +255,7 @@ $header-height: 110px;
   .guide-header {
     width: calc(100% + 4px);
 
-    background-color: rgb(250, 250,250);
+    background-color: rgb(250, 250, 250);
     z-index: 1000;
 
     position: absolute;
@@ -271,9 +270,11 @@ $header-height: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    >*{
+
+    > * {
       margin: 20px;
     }
+
     .header-pane-controller {
       display: flex;
 
@@ -373,82 +374,90 @@ $header-height: 110px;
       }
     }
 
-    .article-images {
-      border-radius: 10px;
-      overflow: hidden;
-
-      .carousel-item {
-        > img {
-          aspect-ratio: 16 / 9;
-          object-fit: cover;
-        }
-      }
-
-      .carousel-indicators {
-        opacity: 20%;
-        margin-bottom: 10px;
-      }
-
-      .carousel-control-prev, .carousel-control-next {
-        display: none;
-      }
-
-      .carousel-caption {
-        align-items: flex-start;
-        left: 10px;
-        top: 5px;
-        right: 10px;
-        bottom: 0;
-        margin: 0;
-        padding: 0;
-        width: fit-content;
-        height: fit-content;
-
-        > * {
-          width: fit-content;
-          text-align: left;
-          padding: 3px 5px;
-          margin: 0;
-          font-size: $font-size-super-tiny;
-          background-color: darkgrey;
-          border-radius: 5px;
-        }
-
-      }
-    }
-
 
     .article-text {
       width: 100%;
       font-size: $font-size-small;
 
-      .special-text {
-        font-weight: bold;
-      }
 
-      .special-text:hover {
-        text-decoration: underline;
-      }
     }
+  }
+}
 
-    .article-reference {
-      .article-reference-title {
-        font-weight: bold;
-        font-size: $font-size-middle;
-        margin-bottom: 10px;
-      }
+.special-text {
+  font-weight: bold;
+}
 
-      .article-reference-info-boxes {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-start;
-        gap: 10px;
-      }
+.special-text:hover {
+  text-decoration: underline;
+}
+
+.article-reference {
+  .article-reference-title {
+    font-weight: bold;
+    font-size: $font-size-middle;
+    margin-bottom: 10px;
+
+    > img {
+      margin-right: 10px;
+      display: inline-block;
+      height: 30px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .article-reference-info-boxes {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+.article-images {
+  border-radius: 10px;
+  overflow: hidden;
+
+  .carousel-item {
+    > img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  }
+
+  .carousel-indicators {
+    opacity: 20%;
+    margin-bottom: 10px;
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    display: none;
+  }
+
+  .carousel-caption {
+    align-items: flex-start;
+    left: 10px;
+    top: 5px;
+    right: 10px;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+
+    > * {
+      width: fit-content;
+      text-align: left;
+      padding: 3px 5px;
+      margin: 0;
+      font-size: $font-size-super-tiny;
+      background-color: darkgrey;
+      border-radius: 5px;
     }
 
   }
-
 }
+
 
 .guide-footer {
   .footer-menu-section {
@@ -475,6 +484,23 @@ $header-height: 110px;
   .footer-logo {
     padding-top: 10px;
     border-top: $line-light-thin;
+  }
+}
+
+.home-featured {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.home-text {
+  .quote-text{
+  border: 1px solid $color-line-light;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 80%;
+    font-style: italic;
   }
 }
 
@@ -570,29 +596,26 @@ $header-height: 110px;
         font-size: $mobile-font-size-tiny;
       }
 
-      .article-images {
-        .carousel-caption {
-          > * {
-            font-size: $mobile-font-size-super-tiny;
-          }
-        }
-      }
-
       .article-text {
         font-size: $mobile-font-size-small;
 
       }
+    }
+  }
+  .article-reference {
+    .article-reference-title {
+      font-size: $mobile-font-size-middle;
+    }
 
-      .article-reference {
-        .article-reference-title {
-          font-size: $mobile-font-size-middle;
-        }
-
-        .article-reference-info-boxes {
-          justify-content: center;
-          gap: 20px;
-        }
-
+    .article-reference-info-boxes {
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+  .article-images {
+    .carousel-caption {
+      > * {
+        font-size: $mobile-font-size-super-tiny;
       }
     }
   }
@@ -602,6 +625,7 @@ $header-height: 110px;
       border-top: none;
       flex-direction: column;
       gap: 10px;
+
       .footer-menu-title {
         font-size: $font-size-tiny;
       }
@@ -635,13 +659,16 @@ $header-height: 110px;
       bottom: 0;
       padding: 0;
       height: $mobile-header-height;
-      .application-logo{
+      font-size: $font-size-big;
+
+      .application-logo {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-100%, -50%);
+        transform: translate(-50%, -50%);
       }
-      >*{
+
+      > * {
         margin: 0 20px;
       }
 

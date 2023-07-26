@@ -3,6 +3,7 @@ import {Place} from "./Place";
 import {useDispatch, useSelector} from "react-redux";
 import {setClickedPlace, setHoveredPlace} from "../redux/placeSlice";
 import {RootState} from "../redux/store";
+import PlaceTypeLogo from "./PlaceTypeLogo";
 
 interface Props {
     place: Place;
@@ -24,8 +25,7 @@ const PlaceCardHeader = ({place, showType}: Props) => {
             {
                 (showType || (hoveredPlace && hoveredPlace.id === place.id)) &&
                 <div className={"info-box-information card-text"}>
-                    <img src={`logos/${place.type}.svg`}
-                         alt={"logos/alt.svg"}></img>
+                    <PlaceTypeLogo placeType={place.type}></PlaceTypeLogo>
                     <span>{place.type}</span>
                 </div>
             }

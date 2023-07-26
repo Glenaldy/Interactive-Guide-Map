@@ -26,7 +26,7 @@ const CustomInfoBox = ({place, article}: Props) => {
             onMouseLeave={() => dispatch(setHoveredPlace(null))}
         >
             {
-                (placeMapOpen && placeMapOpen.id === place.id) ?
+                (placeMapOpen && placeMapOpen.id === place.id) && place.article != -1 ?
                     /**
                      * IF place = open, Show info-box
                      */
@@ -36,7 +36,7 @@ const CustomInfoBox = ({place, article}: Props) => {
                                     dispatch(setClickedPlace(null))
                                     dispatch(setHoveredPlace(null))
                                 }
-                        }/>
+                                }/>
                         <PlaceCard place={place} article={article}></PlaceCard>
                     </> :
                     /**

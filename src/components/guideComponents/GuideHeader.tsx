@@ -23,10 +23,10 @@ const GuideHeader = ({onArticleOnly, onSplitView, onArticleShowClick, onHomeClic
                 </div>
             </div>
             <div  onClick={onHomeClick}>
-            <ApplicationLogo></ApplicationLogo>
+            <ApplicationLogo full={splitOrientation==="vertical"}></ApplicationLogo>
             </div>
             {splitOrientation === "horizontal" &&
-                <div onClick={onArticleShowClick}>SHOW FOOTER</div>
+                <div onClick={onArticleShowClick}>⋮</div>
             }
         </div>
     )

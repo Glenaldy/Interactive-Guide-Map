@@ -13,8 +13,8 @@ import {RootState} from "./redux/store";
 function App() {
     const dispatch = useDispatch()
     /** State */
-    const [placesDB, placesLoading] = useDatabase<Place>(`${process.env.REACT_APP_BACKEND_SERVER_URL}/places`, Place);
-    const [articlesDB, articlesLoading] = useDatabase<Article>(`${process.env.REACT_APP_BACKEND_SERVER_URL}/articles`, Article);
+    const [placesDB, placesLoading] = useDatabase<Place>(`${process.env.REACT_APP_BACKEND_SERVER_URL}/places?api_key=${process.env.REACT_APP_BACKEND_SERVER_API_KEY}`, Place);
+    const [articlesDB, articlesLoading] = useDatabase<Article>(`${process.env.REACT_APP_BACKEND_SERVER_URL}/articles?api_key=${process.env.REACT_APP_BACKEND_SERVER_API_KEY}`, Article);
 
     /** Windows Resize*/
     const splitOrientation = useSelector((state: RootState) => state.globalStates.splitOrientation)
@@ -100,7 +100,6 @@ function App() {
                         onArticleOnly={() => handleResizerClick(true)}
                     />
                 </Pane>
-                <span>ASD</span>
             </SplitPane>
         </main>
     );

@@ -29,7 +29,7 @@ const GuideFooter = ({}: Props) => {
     //TODO List of Places should be according to menu and limited in number
 
     return (
-        <div className={"guide-footer"}>
+        <div className={"guide-footer max-width-section"}>
             <div className={"footer-menu-section"}>
                 <FooterMenu title={"Regions"} listOfPlace={regions}></FooterMenu>
                 <FooterMenu title={"Prefectures"} listOfPlace={prefecture}></FooterMenu>
@@ -38,7 +38,7 @@ const GuideFooter = ({}: Props) => {
             </div>
             {splitOrientation === "vertical" &&
                 <div className={"footer-logo"}>
-                    <ApplicationLogo></ApplicationLogo>
+                    <ApplicationLogo full={splitOrientation === "vertical"}></ApplicationLogo>
                 </div>
             }
         </div>

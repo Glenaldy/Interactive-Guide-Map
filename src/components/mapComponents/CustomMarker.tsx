@@ -21,7 +21,7 @@ const CustomMarker = ({place, article}: Props) => {
     let showOrNot: boolean
     switch (place.type) {
         case PlaceType.Region:
-            showOrNot = zoomLevel <= 9;
+            showOrNot = zoomLevel <= 7;
             break;
         case PlaceType.Prefecture:
             showOrNot = zoomLevel > 7 && zoomLevel <= 10;
