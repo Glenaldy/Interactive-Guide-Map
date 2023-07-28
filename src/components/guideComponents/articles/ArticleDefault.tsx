@@ -17,10 +17,10 @@ interface Props {
 
 const ArticleDefault = ({}) => {
     const placeDB = useSelector((state: RootState) => state.globalStates.placeDatabase)
-    const place1 = placeDB.find(place => place.identifier === "place_shrine_kinkakuji")
+    const place1 = placeDB.find(place => place.identifier === "place_temple_kinkakuji")
     const placeQuote1 = new PlaceReference("", "Kinkaku-ji (Golden temple)", place1 ?? new Place())
-    const place2 = placeDB.find(place => place.identifier === "place_shrine_ginkakuji")
-    const placeQuote2 = new PlaceReference("", "Ginkaku-ji (Silver temple)", place1 ?? new Place())
+    const place2 = placeDB.find(place => place.identifier === "place_temple_ginkakuji")
+    const placeQuote2 = new PlaceReference("", "Ginkaku-ji (Silver temple)", place2 ?? new Place())
     return (
         <div className={"guide-home guide-article max-width-section"}>
             <h1 className="home-title article-header">
@@ -29,11 +29,29 @@ const ArticleDefault = ({}) => {
             <Carousel className={"home-images article-images"}>
                 <Carousel.Item>
                     <img className="d-block w-100"
-                         src={`placeholder.jpg`}
-                         alt={"image placeholder"}
+                         src={`/images-static/home1.png`}
+                         alt={"logo"}
                     />
                     <Carousel.Caption>
-                        <p>Description</p>
+                        <p>Design logo of the application</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img className="d-block w-100"
+                         src={`/images-static/home2.png`}
+                         alt={"design desktop"}
+                    />
+                    <Carousel.Caption>
+                        <p>Desktop design on Figma</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img className="d-block w-100"
+                         src={`/images-static/home3.png`}
+                         alt={"logo"}
+                    />
+                    <Carousel.Caption>
+                        <p>Mobile design on Figma</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
