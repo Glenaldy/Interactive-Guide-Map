@@ -1,10 +1,12 @@
-import React, {LegacyRef} from "react";
+import React, {LegacyRef, useEffect, useRef} from "react";
 import ArticleSubheader from "./articles/ArticleSubheader";
 import ArticleHeader from "./articles/ArticleHeader";
 import ArticleImages from "./articles/ArticleImages";
 import ArticleText from "./articles/ArticleText";
 import {Article} from "../Article";
 import ArticleFeatured from "./articles/ArticleFeatured";
+import {useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
 
 interface Props {
     currentArticle: Article

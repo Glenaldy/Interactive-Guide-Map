@@ -16,22 +16,25 @@ const GuideApp = ({onArticleOnly, onSplitView}: Props) => {
     const currentArticle = useSelector((state: RootState) => state.globalStates.currentArticle)
     const splitOrientation = useSelector((state: RootState) => state.globalStates.splitOrientation)
     const [showArticleList, setShowArticleList] = useState<boolean>(false);
-    // const articleRef = useRef<HTMLDivElement | null>(null);
-    //
-    // useEffect(() => {
-    //     if (currentArticle && articleRef.current) {
-    //         articleRef.current.scrollIntoView({behavior: 'smooth', block: 'start'});
-    //     }
-    // }, [currentArticle]);
+    const articleRef = useRef<HTMLDivElement | null>(null);
+
+    // Scroll to top on click
+    useEffect(() => {
+        if (articleRef.current) {
+            articleRef.current.scrollTop = 0;
+            articleRef.current?.scrollIntoView({behavior: 'smooth'})
+        }
+    }, [currentArticle]);
+
     const handleClickArticleShow = () => {
-        setShowArticleList(true)
+        setShowArticleList(!showArticleList)
     }
     const handleClickHome = () => {
         setShowArticleList(false)
     }
     return (
         splitOrientation === "vertical" ?
-            <div className="guideApp">
+            <div ref={articleRef} className="guideApp scroll-to-top-div">
                 <GuideHeader
                     onSplitView={onSplitView}
                     onArticleOnly={onArticleOnly}

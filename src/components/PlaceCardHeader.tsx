@@ -16,7 +16,9 @@ const PlaceCardHeader = ({place, showType}: Props) => {
 
     return (
         <div
-            className={`info-box-header card-body ${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""}`}
+            className={`info-box-header card-body 
+            ${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""} 
+            ${(place.article == -1) && "no-article"}`}
             onClick={() => dispatch(setClickedPlace(place))}
             onMouseOver={() => dispatch(setHoveredPlace(place.id))}
             onMouseLeave={() => dispatch(setHoveredPlace(null))}>

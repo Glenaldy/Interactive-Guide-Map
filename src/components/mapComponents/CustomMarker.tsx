@@ -48,7 +48,8 @@ const CustomMarker = ({place, article}: Props) => {
             position={new google.maps.LatLng(place.pos)}
             zIndex={
                 (hoveredPlace && hoveredPlace.id === place.id) ? 999
-                    : (placeMapOpen && placeMapOpen.id === place.id) ? 998 : 0
+                    : (placeMapOpen && placeMapOpen.id === place.id) ? 998
+                        : (place.article >= 0) ? 997 : 0
             }
 
         >
@@ -58,7 +59,9 @@ const CustomMarker = ({place, article}: Props) => {
                     <>
                         <div
                             className={"info-box-triangle"}>
-                            <div className={(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""}></div>
+                            <div className={`${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""} 
+                            ${(place.article == -1) && "no-article"}`}
+                            ></div>
                         </div>
                         <CustomInfoBox place={place} article={article}/>
                         {

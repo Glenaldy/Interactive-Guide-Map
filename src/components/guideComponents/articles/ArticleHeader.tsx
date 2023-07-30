@@ -11,8 +11,9 @@ const ArticleHeader = ({currentArticle}: Props) => {
     return (
         <div className={"article-header"}>
             <div className={"article-header-text"}>
-                <div className={"article-title"}>{currentArticle.title}</div>
-                <div className={"article-subtitle"}>{currentArticle.subtitle}</div>
+                <span className={"article-title"}>{currentArticle.title}</span>
+                <br/>
+                <span className={"article-subtitle"}>{currentArticle.subtitle}</span>
             </div>
             <div className={"article-logo"}>
                 {

@@ -9,6 +9,7 @@ import {Article} from "./components/Article";
 import {useDispatch, useSelector} from "react-redux";
 import {setArticleDatabase, setPlaceDatabase, setSplitOrientation} from "./redux/placeSlice";
 import {RootState} from "./redux/store";
+import {map} from "react-bootstrap/ElementChildren";
 
 function App() {
     const dispatch = useDispatch()
@@ -22,6 +23,7 @@ function App() {
     const minSizeHorizontal = 230
     const [minPaneSize, setMinPaneSize] = useState<number>(minSizeHorizontal);
     const [paneSize, setPaneSize] = useState<number>(minPaneSize);
+
 
     useEffect(() => {
         dispatch(setPlaceDatabase(placesDB))
@@ -56,9 +58,7 @@ function App() {
         language: "en"
     });
 
-    if (!isLoaded || placesLoading || articlesLoading) {
-        return <div>Loading...</div>;
-    }
+
 
     /**
      * Functions
@@ -71,6 +71,9 @@ function App() {
         } else setPaneSize(minPaneSize)
     }
 
+    if (!isLoaded || placesLoading || articlesLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <main>

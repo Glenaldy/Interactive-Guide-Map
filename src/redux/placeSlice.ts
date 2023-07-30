@@ -10,12 +10,12 @@ interface GlobalStates {
     zoomLevel: number
     placeDatabase: Array<Place>
     articleDatabase: Array<Article>
-    splitOrientation: "vertical" |"horizontal"
+    splitOrientation: "vertical" | "horizontal"
 }
 
 const initialState: GlobalStates = {
     hoveredPlace: null, placeMapOpen: null, currentArticle: null, mapCenter: {lat: 35.0116, lng: 135.7681},
-    placeDatabase: [], articleDatabase: [], zoomLevel: 10, splitOrientation: "vertical"
+    placeDatabase: [], articleDatabase: [], zoomLevel: 6, splitOrientation: "vertical"
 }
 
 export const placeSlice = createSlice({
@@ -35,7 +35,8 @@ export const placeSlice = createSlice({
             state.placeMapOpen = null
             state.hoveredPlace = null
             article?.place && (state.mapCenter = article.place.pos)
-            article?.place && (state.zoomLevel = article.place.zoom)
+            article?.place && (state.placeMapOpen = article.place)
+            // article?.place && (state.zoomLevel = article.place.zoom)
         },
         setMapCenter: (state, action: PayloadAction<{ lat: number, lng: number }>) => {
             state.mapCenter = action.payload
@@ -46,10 +47,10 @@ export const placeSlice = createSlice({
         setArticleDatabase: (state, action: PayloadAction<Array<Article>>) => {
             state.articleDatabase = action.payload
         },
-        setZoomLevel: (state, action:PayloadAction<number>)=>{
+        setZoomLevel: (state, action: PayloadAction<number>) => {
             state.zoomLevel = action.payload
         },
-        setSplitOrientation: (state, action:PayloadAction<"vertical" |"horizontal">)=>{
+        setSplitOrientation: (state, action: PayloadAction<"vertical" | "horizontal">) => {
             state.splitOrientation = action.payload
         }
     }

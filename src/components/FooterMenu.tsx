@@ -2,7 +2,7 @@ import React from "react";
 import {Place} from "./Place";
 import {forEach} from "react-bootstrap/ElementChildren";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentArticle} from "../redux/placeSlice";
+import {setCurrentArticle, setMapCenter} from "../redux/placeSlice";
 import {RootState} from "../redux/store";
 
 interface Props {
@@ -14,8 +14,11 @@ interface Props {
 const FooterMenu = ({title, listOfPlace}: Props) => {
     const dispatch = useDispatch()
 
+
     const handleMenuClick = (placeId: number) => {
         dispatch(setCurrentArticle(placeId))
+        // dispatch()
+        // dispatch(setMapCenter(place))
     }
 
     return (

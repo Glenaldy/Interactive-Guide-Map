@@ -1,7 +1,6 @@
 import React from "react";
-import {Article, PlaceReference} from "../../Article";
-import {useDispatch, useSelector} from "react-redux";
-import {setCurrentArticle, setMapCenter} from "../../../redux/placeSlice";
+import {PlaceReference} from "../../Article";
+import {useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
 import ApplicationLogo from "../../ApplicationLogo";
 import {Carousel} from "react-bootstrap";

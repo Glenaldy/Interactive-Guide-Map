@@ -1,5 +1,5 @@
 import React from "react";
-import {setClickedPlace, setCurrentArticle, setMapCenter} from "../redux/placeSlice";
+import {setClickedPlace, setCurrentArticle, setMapCenter, setZoomLevel} from "../redux/placeSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {Place} from "./Place";
@@ -32,7 +32,11 @@ const PlaceCard = ({place, article}: Props) => {
                 <p className={"info-box-subtitle"}>{article && article.subtitle}</p>
                 <button
                     className={"btn btn-primary placeInfoBoxButton"}
-                    onClick={() => dispatch(setCurrentArticle(place.article))}
+                    onClick={() => {
+                        dispatch(setCurrentArticle(place.article))
+                        dispatch(setZoomLevel(15))
+                        dispatch(setMapCenter(place.pos))
+                    }}
                 >Read more
                 </button>
                 <br/>
@@ -40,7 +44,6 @@ const PlaceCard = ({place, article}: Props) => {
             {
                 article.images.length > 0 ?
                     <Carousel className={"info-box-img card-img-bottom"}>
-                        {/*TODO InfoBox Images*/}
                         {
                             article.images.map(image =>
                                 <Carousel.Item key={"article-image-" + image.identifier}>
@@ -61,8 +64,6 @@ const PlaceCard = ({place, article}: Props) => {
                         </Carousel.Item>
                     </Carousel>
             }
-
-
         </div>
     )
 }

@@ -1,11 +1,11 @@
 import {GoogleMap, Polygon, useGoogleMap} from "@react-google-maps/api";
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Article} from "./Article";
 import {Place} from "./Place";
 import CustomMarker from "./mapComponents/CustomMarker";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
-import {setZoomLevel} from "../redux/placeSlice";
+import {setMapCenter, setZoomLevel} from "../redux/placeSlice";
 
 interface Props {
     places: Array<Place>;
@@ -14,24 +14,38 @@ interface Props {
 
 const Map: React.FC<Props> = React.memo(({places, articles}) => {
     const dispatch = useDispatch();
-    const [map, setMap] = React.useState<google.maps.Map>()
+    const [mapReference, setMapReference] = React.useState<google.maps.Map>()
     const mapCenter = useSelector((state: RootState) => state.globalStates.mapCenter);
     const zoomLevel = useSelector((state: RootState) => state.globalStates.zoomLevel);
 
+    useEffect(() => {
+        mapReference?.panTo(mapCenter)
+        console.log(mapCenter)
+    }, [mapCenter])
     const handleZoomChanged = () => {
-        dispatch(setZoomLevel(map?.getZoom() ?? 10))
+        dispatch(setZoomLevel(mapReference?.getZoom() ?? 10))
     };
+    const handleCenterChanged = () => {
+        dispatch(setMapCenter({
+            lat: mapReference?.getCenter()?.lat() ?? mapCenter.lat,
+            lng: mapReference?.getCenter()?.lng() ?? mapCenter.lng
+        }))
+    };
+
 
     return (
         <GoogleMap
             onLoad={(map) => {
-                setMap(map)
+                setMapReference(map)
+                dispatch(setZoomLevel(map.getZoom() ?? zoomLevel))
             }}
-            clickableIcons={false}
+            options={{center:mapCenter}}
             center={mapCenter}
             zoom={zoomLevel}
+            clickableIcons={false}
             mapContainerStyle={{height: "100%", width: "100%"}}
             onZoomChanged={handleZoomChanged}
+            onDragEnd={handleCenterChanged}
         >
             {places.map((place) => (
                 <CustomMarker

@@ -20,7 +20,6 @@ const ArticleReference = ({currentArticle}: Props) => {
                     {
                         currentArticle?.placeReferences.map(reference => {
                                 const asd = articleDb.find(article => article.id === reference.place.article)
-                                console.log(reference.place)
                                 return <PlaceCard place={reference.place} article={asd ?? null}/>
                             }
                         )

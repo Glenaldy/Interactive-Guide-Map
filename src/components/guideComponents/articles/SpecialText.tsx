@@ -1,15 +1,7 @@
 import React from "react";
 import {PlaceReference} from "../../Article";
-import {Place} from "../../Place";
-import {useDispatch, useSelector} from "react-redux";
-import {
-    setClickedPlace,
-    setCurrentArticle,
-    setHoveredPlace,
-    setMapCenter,
-    setZoomLevel
-} from "../../../redux/placeSlice";
-import {RootState} from "../../../redux/store";
+import {useDispatch} from "react-redux";
+import {setClickedPlace, setHoveredPlace, setMapCenter, setZoomLevel} from "../../../redux/placeSlice";
 
 interface Props {
     reference: PlaceReference
@@ -25,10 +17,9 @@ const SpecialText = ({reference}: Props) => {
     }
     const handleMouseClick = () => {
         // When mouse clicked, place should be opened, and map should be centered
-
         dispatch(setClickedPlace(reference.place))
         dispatch(setMapCenter(reference.place.pos))
-        dispatch(setZoomLevel(reference.place.zoom))
+        dispatch(setZoomLevel(15))
     }
 
     return (
@@ -38,6 +29,7 @@ const SpecialText = ({reference}: Props) => {
             onMouseEnter={() => handleMouseEnter(reference.place.id)}
             onMouseLeave={handleMouseLeave}
             onClick={handleMouseClick}
+            onDoubleClick={()=>{dispatch(setZoomLevel(reference.place.zoom))}}
         >
             {reference.text}
         </span>
