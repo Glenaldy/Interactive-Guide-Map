@@ -20,6 +20,8 @@ const ArticleDefault = ({}) => {
     const placeQuote1 = new PlaceReference("", "Kinkaku-ji (Golden temple)", place1 ?? new Place())
     const place2 = placeDB.find(place => place.identifier === "place_temple_ginkakuji")
     const placeQuote2 = new PlaceReference("", "Ginkaku-ji (Silver temple)", place2 ?? new Place())
+    const place3 = placeDB.find(place => place.identifier === "city_kyoto")
+    const placeQuote3 = new PlaceReference("", "Kyoto City", place3 ?? new Place())
     return (
         <div className={"guide-home guide-article max-width-section"}>
             <h1 className="home-title article-header">
@@ -60,7 +62,7 @@ const ArticleDefault = ({}) => {
                 <p>Try enhancing your exploration by interacting with the bolded text within the guide. Hover your mouse
                     over it to get a preview of the reference's location on the map. Click on the special text to reveal
                     additional spatial information directly on the interactive map.</p>
-                <p className={"quote-text"}>Kyoto served as Japan's capital and the emperor's residence from 794 until
+                <p className={"quote-text"}><SpecialText reference={placeQuote3}/> served as Japan's capital and the emperor's residence from 794 until
                     1868. It is one of the country's ten largest cities with a population of 1.5 million people and a
                     modern face. One of the most famous temple is <SpecialText reference={placeQuote1}/>, not to be
                     mistaken for <SpecialText reference={placeQuote2}/>.</p>

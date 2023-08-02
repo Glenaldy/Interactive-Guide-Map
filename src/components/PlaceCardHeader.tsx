@@ -13,19 +13,23 @@ interface Props {
 const PlaceCardHeader = ({place, showType}: Props) => {
     const dispatch = useDispatch()
     const hoveredPlace = useSelector((state: RootState) => state.globalStates.hoveredPlace)
+    const currentArticle = useSelector((state: RootState) => state.globalStates.currentArticle)
+    const showingCurrentArticlePlace = currentArticle && currentArticle.place ? currentArticle.place.id === place.id : false
 
     return (
         <div
             className={`info-box-header card-body 
-            ${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""} 
-            ${(place.article == -1) && "no-article"}`}
+            ${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark " : ""} 
+            ${(place.article == -1) && "no-article "}
+            ${showingCurrentArticlePlace && "current-article"}
+            `}
             onClick={() => dispatch(setClickedPlace(place))}
             onMouseOver={() => dispatch(setHoveredPlace(place.id))}
             onMouseLeave={() => dispatch(setHoveredPlace(null))}>
             <div className={"info-box-title card-title"}>{place.name}</div>
 
             {
-                (showType || (hoveredPlace && hoveredPlace.id === place.id)) &&
+                (showingCurrentArticlePlace || showType || (hoveredPlace && hoveredPlace.id === place.id)) &&
                 <div className={"info-box-information card-text"}>
                     <PlaceTypeLogo placeType={place.type}></PlaceTypeLogo>
                     <span>{place.type}</span>

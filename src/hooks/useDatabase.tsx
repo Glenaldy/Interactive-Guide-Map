@@ -25,7 +25,7 @@ function useDatabase<T>(source: string, type: new (...args: any[]) => T): [Array
             .catch((error) => {
                 setIsLoading(false);
             });
-    }, [source]);
+    }, [source, fetchData]);
 
     return [database, isLoading];
 }

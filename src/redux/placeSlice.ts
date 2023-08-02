@@ -36,7 +36,6 @@ export const placeSlice = createSlice({
             state.hoveredPlace = null
             article?.place && (state.mapCenter = article.place.pos)
             article?.place && (state.placeMapOpen = article.place)
-            // article?.place && (state.zoomLevel = article.place.zoom)
         },
         setMapCenter: (state, action: PayloadAction<{ lat: number, lng: number }>) => {
             state.mapCenter = action.payload

@@ -19,7 +19,6 @@ const SpecialText = ({reference}: Props) => {
         // When mouse clicked, place should be opened, and map should be centered
         dispatch(setClickedPlace(reference.place))
         dispatch(setMapCenter(reference.place.pos))
-        dispatch(setZoomLevel(15))
     }
 
     return (
@@ -29,7 +28,7 @@ const SpecialText = ({reference}: Props) => {
             onMouseEnter={() => handleMouseEnter(reference.place.id)}
             onMouseLeave={handleMouseLeave}
             onClick={handleMouseClick}
-            onDoubleClick={()=>{dispatch(setZoomLevel(reference.place.zoom))}}
+            // onDoubleClick={()=>{dispatch(setZoomLevel(reference.place.zoom))}}
         >
             {reference.text}
         </span>

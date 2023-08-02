@@ -91,8 +91,6 @@ function App() {
                 {/* @ts-ignore */}
                 <Pane className={"paneMap"}>
                     <MapApp
-                        places={placesDB}
-                        articles={articlesDB}
                     />
                 </Pane>
 

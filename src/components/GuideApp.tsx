@@ -41,7 +41,6 @@ const GuideApp = ({onArticleOnly, onSplitView}: Props) => {
                     onArticleShowClick={handleClickArticleShow}
                     onHomeClick={handleClickHome}
                 />
-                <HistoryBar></HistoryBar>
                 {
                     currentArticle ?
                         <ArticleSection currentArticle={currentArticle}></ArticleSection> :
@@ -67,7 +66,6 @@ const GuideApp = ({onArticleOnly, onSplitView}: Props) => {
                         onArticleShowClick={handleClickArticleShow}
                         onHomeClick={handleClickHome}
                     />
-                    <HistoryBar></HistoryBar>
                     {
                         currentArticle ?
                             <ArticleSection currentArticle={currentArticle}></ArticleSection> :

@@ -2,7 +2,7 @@ import React from "react";
 import {Place} from "./Place";
 import {forEach} from "react-bootstrap/ElementChildren";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentArticle, setMapCenter} from "../redux/placeSlice";
+import {setCurrentArticle, setMapCenter, setZoomLevel} from "../redux/placeSlice";
 import {RootState} from "../redux/store";
 
 interface Props {
@@ -13,12 +13,12 @@ interface Props {
 
 const FooterMenu = ({title, listOfPlace}: Props) => {
     const dispatch = useDispatch()
+    const articleDb = useSelector((state: RootState) => state.globalStates.articleDatabase)
 
-
-    const handleMenuClick = (placeId: number) => {
-        dispatch(setCurrentArticle(placeId))
-        // dispatch()
-        // dispatch(setMapCenter(place))
+    const handleMenuClick = (articleId: number) => {
+        const article = articleDb.find(found => found.id === articleId)
+        dispatch(setCurrentArticle(articleId))
+        article && article.place && dispatch(setZoomLevel(article.place.zoom))
     }
 
     return (

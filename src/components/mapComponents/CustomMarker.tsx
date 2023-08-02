@@ -1,22 +1,23 @@
 import {Place} from "../Place";
-import {InfoBoxF, MarkerF, Polygon, PolygonF} from "@react-google-maps/api";
+import {InfoBoxF, PolygonF} from "@react-google-maps/api";
 import React from "react";
 import {Article} from "../Article";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
-import {setClickedPlace, setCurrentArticle, setHoveredPlace} from "../../redux/placeSlice";
 import CustomInfoBox from "../CustomInfoBox";
 import {PlaceType} from "../../PlaceType";
 
 interface Props {
     place: Place;
-    article: Article;
+    article: Article | null;
 }
 
 const CustomMarker = ({place, article}: Props) => {
     const hoveredPlace = useSelector((state: RootState) => state.globalStates.hoveredPlace)
     const placeMapOpen = useSelector((state: RootState) => state.globalStates.placeMapOpen)
     const zoomLevel = useSelector((state: RootState) => state.globalStates.zoomLevel)
+    const currentArticle = useSelector((state: RootState) => state.globalStates.currentArticle)
+    const showingCurrentArticlePlace = currentArticle && currentArticle.place ? currentArticle.place.id === place.id : false
 
     let showOrNot: boolean
     switch (place.type) {
@@ -30,10 +31,9 @@ const CustomMarker = ({place, article}: Props) => {
             showOrNot = zoomLevel > 10 && zoomLevel <= 12;
             break;
         default:
-            showOrNot = zoomLevel >= 13;
+            showOrNot = zoomLevel >= 12;
             break;
     }
-
     if ((placeMapOpen && placeMapOpen.id === place.id) || (hoveredPlace && hoveredPlace.id === place.id)) showOrNot = true
 
 
@@ -53,21 +53,21 @@ const CustomMarker = ({place, article}: Props) => {
             }
 
         >
-            {
-                /** Show according to ZOOM for info-box*/
+            {/** Show according to ZOOM for info-box*/
                 showOrNot ?
                     <>
                         <div
                             className={"info-box-triangle"}>
-                            <div className={`${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""} 
-                            ${(place.article == -1) && "no-article"}`}
+                            <div className={`
+                            ${(hoveredPlace && hoveredPlace.id === place.id) && "color-mark "} 
+                            ${(place.article == -1) && "no-article"}
+                            ${showingCurrentArticlePlace && "current-article"}
+                            `}
                             ></div>
                         </div>
                         <CustomInfoBox place={place} article={article}/>
                         {
-                            /**
-                             * Show Polygon (Area) if it's hovered / open
-                             * */
+                            /** Show Polygon (Area) if it's hovered / open */
                             ((hoveredPlace && hoveredPlace.id === place.id)
                                 || (placeMapOpen && placeMapOpen.id === place.id)) &&
                             <PolygonF paths={place.area}/>

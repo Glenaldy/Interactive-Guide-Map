@@ -1,8 +1,7 @@
 import React from "react";
-import {setCurrentArticle} from "../../redux/placeSlice";
+import {setCurrentArticle, setZoomLevel} from "../../redux/placeSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../redux/store";
-import {Place} from "../Place";
 
 interface Props {
     placeId: number | null
@@ -18,17 +17,15 @@ const HistoryBar = () => {
         return (
             place ? (<div
                 className={"guide-history-node"}
-                onClick={() => dispatch(setCurrentArticle(place.article))}
+                onClick={() => {
+                    dispatch(setCurrentArticle(place.article))
+                    dispatch(setZoomLevel(place.zoom))
+                }}
             >{place.name}</div>) : <></>
         )
 
     }
 
-    if (currentArticle && currentArticle.place) {
-        console.log(currentArticle.place.region)
-        console.log(currentArticle.place.prefecture)
-        console.log(currentArticle.place.city)
-    }
     return (
         <div className={"guide-history"}>
             {

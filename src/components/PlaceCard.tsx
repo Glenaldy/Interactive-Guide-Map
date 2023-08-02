@@ -15,12 +15,17 @@ interface Props {
 const PlaceCard = ({place, article}: Props) => {
     const dispatch = useDispatch()
     const hoveredPlace = useSelector((state: RootState) => state.globalStates.hoveredPlace)
+    const currentArticle = useSelector((state: RootState) => state.globalStates.currentArticle)
+    const showingCurrentArticlePlace = currentArticle && currentArticle.place ? currentArticle.place.id === place.id : false
 
     return (
         article &&
         <div
             id={"mapMarker" + place.id}
-            className={`info-box card ${(hoveredPlace && hoveredPlace.id === place.id) ? "color-mark" : ""}`}
+            className={`info-box card 
+            ${(hoveredPlace && hoveredPlace.id === place.id) && "color-mark"}
+            ${showingCurrentArticlePlace && "current-article"}
+            `}
             onClick={() => {
                 dispatch(setClickedPlace(place))
                 dispatch(setMapCenter(place.pos))
@@ -34,7 +39,7 @@ const PlaceCard = ({place, article}: Props) => {
                     className={"btn btn-primary placeInfoBoxButton"}
                     onClick={() => {
                         dispatch(setCurrentArticle(place.article))
-                        dispatch(setZoomLevel(15))
+                        dispatch(setZoomLevel(place.zoom))
                         dispatch(setMapCenter(place.pos))
                     }}
                 >Read more

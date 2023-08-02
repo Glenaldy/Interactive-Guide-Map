@@ -1,27 +1,25 @@
-import {GoogleMap, Polygon, useGoogleMap} from "@react-google-maps/api";
-import React, {useEffect, useRef, useState} from "react";
-import {Article} from "./Article";
-import {Place} from "./Place";
+import {GoogleMap} from "@react-google-maps/api";
+import React, {useEffect} from "react";
 import CustomMarker from "./mapComponents/CustomMarker";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {setMapCenter, setZoomLevel} from "../redux/placeSlice";
 
 interface Props {
-    places: Array<Place>;
-    articles: Array<Article>;
 }
 
-const Map: React.FC<Props> = React.memo(({places, articles}) => {
+const Map = (({}: Props) => {
     const dispatch = useDispatch();
     const [mapReference, setMapReference] = React.useState<google.maps.Map>()
     const mapCenter = useSelector((state: RootState) => state.globalStates.mapCenter);
     const zoomLevel = useSelector((state: RootState) => state.globalStates.zoomLevel);
+    const places = useSelector((state: RootState) => state.globalStates.placeDatabase);
+    const articles = useSelector((state: RootState) => state.globalStates.articleDatabase)
 
     useEffect(() => {
         mapReference?.panTo(mapCenter)
-        console.log(mapCenter)
-    }, [mapCenter])
+    }, [mapCenter, mapReference])
+
     const handleZoomChanged = () => {
         dispatch(setZoomLevel(mapReference?.getZoom() ?? 10))
     };
@@ -32,14 +30,17 @@ const Map: React.FC<Props> = React.memo(({places, articles}) => {
         }))
     };
 
-
     return (
+        zoomLevel &&
         <GoogleMap
+
             onLoad={(map) => {
                 setMapReference(map)
+                map.setCenter({lat: 35.0116, lng: 135.7681})
+                map.setZoom(6)
                 dispatch(setZoomLevel(map.getZoom() ?? zoomLevel))
             }}
-            options={{center:mapCenter}}
+            options={{center: {lat: 35.0116, lng: 135.7681}}}
             center={mapCenter}
             zoom={zoomLevel}
             clickableIcons={false}
@@ -51,9 +52,10 @@ const Map: React.FC<Props> = React.memo(({places, articles}) => {
                 <CustomMarker
                     key={place.id}
                     place={place}
-                    article={articles.find((article) => article.id === place.article)!}
+                    article={articles.find((article) => article.id === place.article) ?? null}
                 />
-            ))}
+            ))
+            }
         </GoogleMap>
     );
 });
