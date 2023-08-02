@@ -1,11 +1,15 @@
 import {GoogleMap} from "@react-google-maps/api";
 import React, {useEffect} from "react";
+import {Article} from "./Article";
+import {Place} from "./Place";
 import CustomMarker from "./mapComponents/CustomMarker";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {setMapCenter, setZoomLevel} from "../redux/placeSlice";
 
 interface Props {
+    // places: Array<Place>;
+    // articles: Array<Article>;
 }
 
 const Map = (({}: Props) => {
@@ -14,11 +18,11 @@ const Map = (({}: Props) => {
     const mapCenter = useSelector((state: RootState) => state.globalStates.mapCenter);
     const zoomLevel = useSelector((state: RootState) => state.globalStates.zoomLevel);
     const places = useSelector((state: RootState) => state.globalStates.placeDatabase);
-    const articles = useSelector((state: RootState) => state.globalStates.articleDatabase)
+    const articles = useSelector((state: RootState) => state.globalStates.articleDatabase);
 
     useEffect(() => {
         mapReference?.panTo(mapCenter)
-    }, [mapCenter, mapReference])
+    }, [mapCenter])
 
     const handleZoomChanged = () => {
         dispatch(setZoomLevel(mapReference?.getZoom() ?? 10))
@@ -31,9 +35,7 @@ const Map = (({}: Props) => {
     };
 
     return (
-        zoomLevel &&
         <GoogleMap
-
             onLoad={(map) => {
                 setMapReference(map)
                 map.setCenter({lat: 35.0116, lng: 135.7681})

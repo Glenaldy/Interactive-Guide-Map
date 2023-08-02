@@ -9,7 +9,6 @@ import {Article} from "./components/Article";
 import {useDispatch, useSelector} from "react-redux";
 import {setArticleDatabase, setPlaceDatabase, setSplitOrientation} from "./redux/placeSlice";
 import {RootState} from "./redux/store";
-import {map} from "react-bootstrap/ElementChildren";
 
 function App() {
     const dispatch = useDispatch()
@@ -91,6 +90,8 @@ function App() {
                 {/* @ts-ignore */}
                 <Pane className={"paneMap"}>
                     <MapApp
+                        // places = {placesDB}
+                        // articles = {articlesDB}
                     />
                 </Pane>
 
