@@ -8,7 +8,7 @@ interface Props {
     currentArticle: Article
 }
 
-const ArticleReference = ({currentArticle}: Props) => {
+const ArticleFeatured = ({currentArticle}: Props) => {
     const articleDb = useSelector((state: RootState) => state.globalStates.articleDatabase)
     return (
         currentArticle.placeReferences.length > 0 ?
@@ -17,8 +17,9 @@ const ArticleReference = ({currentArticle}: Props) => {
                 <div className={"article-reference-info-boxes"}>
                     {
                         currentArticle?.placeReferences.map(reference => {
-                                const asd = articleDb.find(article => article.id === reference.place.article)
-                                return <PlaceCard place={reference.place} article={asd ?? null}/>
+                                const findArticle = articleDb.find(article => article.id === reference.place.article)
+                                return <PlaceCard key={`article-featured-place-card-${reference.place.identifier}`}
+                                                  place={reference.place} article={findArticle ?? null}/>
                             }
                         )
                     }
@@ -28,4 +29,4 @@ const ArticleReference = ({currentArticle}: Props) => {
     )
 }
 
-export default ArticleReference
+export default ArticleFeatured

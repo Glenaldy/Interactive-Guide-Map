@@ -7,7 +7,6 @@ interface Props {
 }
 
 const ArticleImages = ({currentArticle}: Props) => {
-    console.log(currentArticle)
     return (
         currentArticle.images.length > 0 ?
             <Carousel className={"article-images"}>

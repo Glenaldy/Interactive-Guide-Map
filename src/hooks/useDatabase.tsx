@@ -20,12 +20,12 @@ function useDatabase<T>(source: string, type: new (...args: any[]) => T): [Array
         fetchData()
             .then((r) => {
                 setDatabase(r);
-                setIsLoading(false);
+                if (r.length > 0) setIsLoading(false);
             })
             .catch((error) => {
                 setIsLoading(false);
             });
-    }, [source, fetchData]);
+    }, [source]);
 
     return [database, isLoading];
 }

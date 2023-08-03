@@ -62,7 +62,8 @@ const ArticleDefault = ({}) => {
                 <p>Try enhancing your exploration by interacting with the bolded text within the guide. Hover your mouse
                     over it to get a preview of the reference's location on the map. Click on the special text to reveal
                     additional spatial information directly on the interactive map.</p>
-                <p className={"quote-text"}><SpecialText reference={placeQuote3}/> served as Japan's capital and the emperor's residence from 794 until
+                <p className={"quote-text"}><SpecialText reference={placeQuote3}/> served as Japan's capital and the
+                    emperor's residence from 794 until
                     1868. It is one of the country's ten largest cities with a population of 1.5 million people and a
                     modern face. One of the most famous temple is <SpecialText reference={placeQuote1}/>, not to be
                     mistaken for <SpecialText reference={placeQuote2}/>.</p>
@@ -82,7 +83,8 @@ const ArticleDefault = ({}) => {
             </div>
             <div className={"home-featured"}>
                 {
-                    Object.values(PlaceType).map(e => (<FeatureType placeType={e}></FeatureType>))
+                    Object.values(PlaceType).map(e => (
+                        <FeatureType key={`Home-feature-${e}`} placeType={e}></FeatureType>))
                 }
 
             </div>
@@ -104,7 +106,7 @@ const FeatureType = ({placeType}: Props) => {
                     {
                         articles.map(article => (
                             article.place &&
-                            <PlaceCard place={article.place} article={article}></PlaceCard>)
+                            <PlaceCard key={`Place-Card-Featured-${article.place.identifier}`} place={article.place} article={article}></PlaceCard>)
                         )
                     }
                 </div>

@@ -29,6 +29,7 @@ const FooterMenu = ({title, listOfPlace}: Props) => {
                     listOfPlace.map(place =>
                         place.article != -1 &&
                         <div
+                            key={`footer-menu-item-${place.identifier}`}
                             className={"footer-menu-item cursor-click"}
                             onClick={() => handleMenuClick(place.article)}
                         >{place.name}</div>

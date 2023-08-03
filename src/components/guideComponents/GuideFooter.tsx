@@ -31,10 +31,10 @@ const GuideFooter = ({}: Props) => {
     return (
         <div className={"guide-footer max-width-section"}>
             <div className={"footer-menu-section"}>
-                <FooterMenu title={"Regions"} listOfPlace={regions}></FooterMenu>
-                <FooterMenu title={"Prefectures"} listOfPlace={prefecture}></FooterMenu>
-                <FooterMenu title={"Cities"} listOfPlace={cities}></FooterMenu>
-                <FooterMenu title={"Featured Place"} listOfPlace={places}></FooterMenu>
+                <FooterMenu key={"region-footer-menu"} title={"Regions"} listOfPlace={regions}></FooterMenu>
+                <FooterMenu key={"prefecture-footer-menu"} title={"Prefectures"} listOfPlace={prefecture}></FooterMenu>
+                <FooterMenu key={"city-footer-menu"} title={"Cities"} listOfPlace={cities}></FooterMenu>
+                <FooterMenu key={"place-footer-menu"} title={"Featured Place"} listOfPlace={places}></FooterMenu>
             </div>
             {splitOrientation === "vertical" &&
                 <div className={"footer-logo"}>

@@ -18,7 +18,6 @@ const ArticleText = ({currentArticle}: Props) => {
                     <p className={"current-article-text"} key={index}>
                         {reactStringReplace(line, /({place_[a-zA-Z_-]*})/g, (match, i) => {
                             const placeReference = currentArticle?.placeReferences.find(place => place.reference === match)
-                            console.log(match)
                             return placeReference ?
                                 <SpecialText
                                     key={`place-span-key_${placeReference.reference}`}

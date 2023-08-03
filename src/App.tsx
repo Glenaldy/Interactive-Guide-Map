@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {useLoadScript} from "@react-google-maps/api";
 import MapApp from "./components/MapApp";
 import GuideApp from "./components/GuideApp";
 import SplitPane, {Pane} from "react-split-pane";
@@ -22,7 +21,6 @@ function App() {
     const minSizeHorizontal = 230
     const [minPaneSize, setMinPaneSize] = useState<number>(minSizeHorizontal);
     const [paneSize, setPaneSize] = useState<number>(minPaneSize);
-
 
     useEffect(() => {
         dispatch(setPlaceDatabase(placesDB))
@@ -52,13 +50,6 @@ function App() {
     }, [dispatch, placesDB, articlesDB]);
 
 
-    const {isLoaded, loadError} = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY!,
-        language: "en"
-    });
-
-
-
     /**
      * Functions
      * @param full
@@ -70,7 +61,7 @@ function App() {
         } else setPaneSize(minPaneSize)
     }
 
-    if (!isLoaded || placesLoading || articlesLoading) {
+    if (placesLoading && articlesLoading && placesDB.length > 0 && articlesDB.length > 0) {
         return <div>Loading...</div>;
     }
 
