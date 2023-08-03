@@ -38,7 +38,7 @@ const CustomMarker = ({place, article}: Props) => {
 
 
     return (
-        <InfoBoxF
+        <InfoBox
             key={"infobox" + place.id}
             options={{
                 closeBoxURL: '',
@@ -78,7 +78,7 @@ const CustomMarker = ({place, article}: Props) => {
                     :
                     <></>
             }
-        </InfoBoxF>
+        </InfoBox>
         // <></>
     )
 

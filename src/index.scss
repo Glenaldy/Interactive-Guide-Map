@@ -23,6 +23,7 @@ $font-size-mega-tiny: 10px;
 }
 
 html, body, #root {
+  overscroll-behavior: contain;
   font-family: 'Noto Sans', sans-serif;
   font-size: 20px;
   height: 100%;
