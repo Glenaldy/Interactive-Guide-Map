@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Place} from "../components/Place";
 import {Article} from "../components/Article";
+import {stat} from "fs";
 
 interface GlobalStates {
     hoveredPlace: Place | null;
@@ -11,11 +12,31 @@ interface GlobalStates {
     placeDatabase: Array<Place>
     articleDatabase: Array<Article>
     splitOrientation: "vertical" | "horizontal"
+    map: google.maps.Map | undefined
 }
 
 const initialState: GlobalStates = {
     hoveredPlace: null, placeMapOpen: null, currentArticle: null, mapCenter: {lat: 35.0116, lng: 135.7681},
-    placeDatabase: [], articleDatabase: [], zoomLevel: 6, splitOrientation: "vertical"
+    placeDatabase: [], articleDatabase: [], zoomLevel: 6, splitOrientation: "vertical", map: undefined
+}
+
+const centerOffset = (zoomLevel: number, latLng: { lat: number, lng: number }, map: google.maps.Map | undefined): { lat: number, lng: number } => {
+    if (map != undefined && map.getProjection() != undefined) {
+        const scale = Math.pow(2, zoomLevel);
+        const worldCoordinateCenter = map.getProjection()?.fromLatLngToPoint(new google.maps.LatLng(latLng));
+        const pixelOffset = new google.maps.Point((-80 / scale) || 0, (100 / scale) || 0);
+
+        if (worldCoordinateCenter == undefined) return latLng
+        const worldCoordinateNewCenter = new google.maps.Point(
+            worldCoordinateCenter.x - pixelOffset.x,
+            worldCoordinateCenter.y + pixelOffset.y
+        );
+
+        const newCenter = map.getProjection()?.fromPointToLatLng(worldCoordinateNewCenter);
+        if (newCenter == undefined || newCenter == null) return latLng
+        return ({lat: newCenter.lat(), lng: newCenter.lng()})
+    }
+    return latLng
 }
 
 export const placeSlice = createSlice({
@@ -34,11 +55,11 @@ export const placeSlice = createSlice({
             state.currentArticle = article
             state.placeMapOpen = null
             state.hoveredPlace = null
-            article?.place && (state.mapCenter = article.place.pos)
             article?.place && (state.placeMapOpen = article.place)
+            article?.place && (state.mapCenter = centerOffset(state.zoomLevel, article.place.pos, state.map))
         },
         setMapCenter: (state, action: PayloadAction<{ lat: number, lng: number }>) => {
-            state.mapCenter = action.payload
+            state.mapCenter = centerOffset(state.zoomLevel, action.payload, state.map)
         },
         setPlaceDatabase: (state, action: PayloadAction<Array<Place>>) => {
             state.placeDatabase = action.payload
@@ -51,6 +72,9 @@ export const placeSlice = createSlice({
         },
         setSplitOrientation: (state, action: PayloadAction<"vertical" | "horizontal">) => {
             state.splitOrientation = action.payload
+        },
+        setMap: (state, action: PayloadAction<google.maps.Map>) => {
+            state.map = action.payload
         }
     }
 })
@@ -63,6 +87,7 @@ export const {
     setPlaceDatabase,
     setArticleDatabase,
     setZoomLevel,
-    setSplitOrientation
+    setSplitOrientation,
+    setMap
 } = placeSlice.actions;
 export default placeSlice.reducer;

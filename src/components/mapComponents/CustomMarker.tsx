@@ -19,8 +19,6 @@ const CustomMarker = ({place, article}: Props) => {
     const currentArticle = useSelector((state: RootState) => state.globalStates.currentArticle)
     const showingCurrentArticlePlace = currentArticle && currentArticle.place ? currentArticle.place.id === place.id : false
 
-    const [infoBoxVisible, setInfoBoxVisible] = useState(false);
-
     let showOrNot: boolean
     switch (place.type) {
         case PlaceType.Region:
@@ -38,13 +36,8 @@ const CustomMarker = ({place, article}: Props) => {
     }
     if ((placeMapOpen && placeMapOpen.id === place.id) || (hoveredPlace && hoveredPlace.id === place.id)) showOrNot = true
 
-    useEffect(() => {
-        setInfoBoxVisible(true);
-    }, [showOrNot]);
-
 
     return (
-        // infoBoxVisible &&
         <InfoBox
             key={"infobox" + place.id}
             options={{
@@ -55,10 +48,10 @@ const CustomMarker = ({place, article}: Props) => {
             }}
             position={new google.maps.LatLng(place.pos)}
             zIndex={
-                showingCurrentArticlePlace ? 999
-                    : (hoveredPlace && hoveredPlace.id === place.id) ? 999
-                        : (placeMapOpen && placeMapOpen.id === place.id) ? 998
-                            : (place.article >= 0) ? 997 : 0
+                (hoveredPlace && hoveredPlace.id === place.id) ? 999
+                    : (placeMapOpen && placeMapOpen.id === place.id) ? 998
+                        : showingCurrentArticlePlace ? 997
+                            : (place.article >= 0) ? 996 : 0
             }
 
         >

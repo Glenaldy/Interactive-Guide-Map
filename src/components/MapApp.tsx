@@ -5,7 +5,7 @@ import {Place} from "./Place";
 import CustomMarker from "./mapComponents/CustomMarker";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
-import {setMapCenter, setZoomLevel} from "../redux/placeSlice";
+import {setMap, setMapCenter, setZoomLevel} from "../redux/placeSlice";
 
 interface Props {
     // places: Array<Place>;
@@ -44,11 +44,12 @@ const Map = (({}: Props) => {
 
     return (
         <GoogleMap
-            onLoad={(map) => {
-                setMapReference(map)
-                map.setCenter(new google.maps.LatLng({lat: 35.0116, lng: 135.7681}))
-                map.setZoom(6)
-                dispatch(setZoomLevel(map.getZoom() ?? zoomLevel))
+            onLoad={(mapRef) => {
+                setMapReference(mapRef)
+                dispatch(setMap(mapRef))
+                mapRef.setCenter(new google.maps.LatLng({lat: 35.0116, lng: 135.7681}))
+                mapRef.setZoom(6)
+                dispatch(setZoomLevel(mapRef.getZoom() ?? zoomLevel))
                 recordCurrentCenter()
             }}
             options={{center: mapCenter}}
@@ -68,19 +69,6 @@ const Map = (({}: Props) => {
                     />
                 ))
             }
-            {/*{<>*/}
-            {/*    <InfoWindowF*/}
-            {/*        options={{}}*/}
-            {/*        position={new google.maps.LatLng({lat: 40.0116, lng: 135.7681})}*/}
-            {/*    >*/}
-
-            {/*        <div>Try enhancing your exploration by interacting with the bolded text within the guide. Hover your*/}
-            {/*            mouse over it to get a preview of the reference's location on the map. Click on the special text*/}
-            {/*            to reveal additional spatial information directly on the interactive map.*/}
-            {/*        </div>*/}
-            {/*    </InfoWindowF>*/}
-            {/*</>*/}
-            {/*}*/}
         </GoogleMap>
     );
 });

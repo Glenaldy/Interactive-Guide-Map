@@ -8,10 +8,10 @@ import {RootState} from "../redux/store";
 interface Props {
     title: String
     listOfPlace: Array<Place>
-
+    menuFooterClicked: () => void
 }
 
-const FooterMenu = ({title, listOfPlace}: Props) => {
+const FooterMenu = ({title, listOfPlace, menuFooterClicked}: Props) => {
     const dispatch = useDispatch()
     const articleDb = useSelector((state: RootState) => state.globalStates.articleDatabase)
 
@@ -31,7 +31,10 @@ const FooterMenu = ({title, listOfPlace}: Props) => {
                         <div
                             key={`footer-menu-item-${place.identifier}`}
                             className={"footer-menu-item cursor-click"}
-                            onClick={() => handleMenuClick(place.article)}
+                            onClick={() => {
+                                handleMenuClick(place.article)
+                                menuFooterClicked()
+                            }}
                         >{place.name}</div>
                     )
                 }

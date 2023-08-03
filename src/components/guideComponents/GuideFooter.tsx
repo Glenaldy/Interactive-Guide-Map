@@ -6,10 +6,10 @@ import ApplicationLogo from "../ApplicationLogo";
 import {Place} from "../Place";
 
 interface Props {
-
+    menuFooterClicked: () => void
 }
 
-const GuideFooter = ({}: Props) => {
+const GuideFooter = ({menuFooterClicked}: Props) => {
     const listOfPlaces: Array<Place> = useSelector((state: RootState) => state.globalStates.placeDatabase)
     const splitOrientation = useSelector((state: RootState) => state.globalStates.splitOrientation)
 
@@ -31,10 +31,14 @@ const GuideFooter = ({}: Props) => {
     return (
         <div className={"guide-footer max-width-section"}>
             <div className={"footer-menu-section"}>
-                <FooterMenu key={"region-footer-menu"} title={"Regions"} listOfPlace={regions}></FooterMenu>
-                <FooterMenu key={"prefecture-footer-menu"} title={"Prefectures"} listOfPlace={prefecture}></FooterMenu>
-                <FooterMenu key={"city-footer-menu"} title={"Cities"} listOfPlace={cities}></FooterMenu>
-                <FooterMenu key={"place-footer-menu"} title={"Featured Place"} listOfPlace={places}></FooterMenu>
+                <FooterMenu key={"region-footer-menu"} title={"Regions"} listOfPlace={regions}
+                            menuFooterClicked={menuFooterClicked}></FooterMenu>
+                <FooterMenu key={"prefecture-footer-menu"} title={"Prefectures"} listOfPlace={prefecture}
+                            menuFooterClicked={menuFooterClicked}></FooterMenu>
+                <FooterMenu key={"city-footer-menu"} title={"Cities"} listOfPlace={cities}
+                            menuFooterClicked={menuFooterClicked}></FooterMenu>
+                <FooterMenu key={"place-footer-menu"} title={"Featured Place"} listOfPlace={places}
+                            menuFooterClicked={menuFooterClicked}></FooterMenu>
             </div>
             {splitOrientation === "vertical" &&
                 <div className={"footer-logo"}>

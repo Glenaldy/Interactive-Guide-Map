@@ -46,9 +46,10 @@ const GuideApp = ({onArticleOnly, onSplitView}: Props) => {
                         <ArticleSection currentArticle={currentArticle}></ArticleSection> :
                         <ArticleDefault></ArticleDefault>
                 }
-                <GuideFooter></GuideFooter>
+                <GuideFooter menuFooterClicked={() => setShowArticleList(false)}></GuideFooter>
 
             </div> :
+            // MOBILE
             (showArticleList ?
                 <div className="guideApp">
                     <GuideHeader
@@ -57,7 +58,7 @@ const GuideApp = ({onArticleOnly, onSplitView}: Props) => {
                         onArticleShowClick={handleClickArticleShow}
                         onHomeClick={handleClickHome}
                     />
-                    <GuideFooter></GuideFooter>
+                    <GuideFooter menuFooterClicked={() => setShowArticleList(false)}></GuideFooter>
                 </div> :
                 <div className="guideApp">
                     <GuideHeader
@@ -71,8 +72,6 @@ const GuideApp = ({onArticleOnly, onSplitView}: Props) => {
                             <ArticleSection currentArticle={currentArticle}></ArticleSection> :
                             <ArticleDefault></ArticleDefault>
                     }
-                    {/*<GuideFooter></GuideFooter>*/}
-
                 </div>)
 
 
