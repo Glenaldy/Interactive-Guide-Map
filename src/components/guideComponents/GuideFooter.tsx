@@ -25,8 +25,8 @@ const GuideFooter = ({menuFooterClicked}: Props) => {
         return !regions?.includes(place)
             && !prefecture?.includes(place)
             && !cities?.includes(place)
+            && place.article >= 0
     })
-    //TODO List of Places should be according to menu and limited in number
 
     return (
         <div className={"guide-footer max-width-section"}>
@@ -37,7 +37,7 @@ const GuideFooter = ({menuFooterClicked}: Props) => {
                             menuFooterClicked={menuFooterClicked}></FooterMenu>
                 <FooterMenu key={"city-footer-menu"} title={"Cities"} listOfPlace={cities}
                             menuFooterClicked={menuFooterClicked}></FooterMenu>
-                <FooterMenu key={"place-footer-menu"} title={"Featured Place"} listOfPlace={places}
+                <FooterMenu key={"place-footer-menu"} title={"Featured Place"} listOfPlace={places.slice(0, 5)}
                             menuFooterClicked={menuFooterClicked}></FooterMenu>
             </div>
             {splitOrientation === "vertical" &&
