@@ -17,8 +17,8 @@ const FooterMenu = ({title, listOfPlace, menuFooterClicked}: Props) => {
 
     const handleMenuClick = (articleId: number) => {
         const article = articleDb.find(found => found.id === articleId)
-        dispatch(setCurrentArticle(articleId))
         article && article.place && dispatch(setZoomLevel(article.place.zoom))
+        dispatch(setCurrentArticle(articleId))
     }
 
     return (
