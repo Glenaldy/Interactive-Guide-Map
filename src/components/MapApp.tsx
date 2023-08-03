@@ -5,7 +5,7 @@ import {Place} from "./Place";
 import CustomMarker from "./mapComponents/CustomMarker";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
-import {setMap, setMapCenter, setZoomLevel} from "../redux/placeSlice";
+import {setMap, setMapCenter, setMapCenterNoOffset, setZoomLevel} from "../redux/placeSlice";
 
 interface Props {
     // places: Array<Place>;
@@ -31,7 +31,7 @@ const Map = (({}: Props) => {
         dispatch(setZoomLevel(mapReference?.getZoom() ?? 10))
     };
     const recordCurrentCenter = () => {
-        dispatch(setMapCenter({
+        dispatch(setMapCenterNoOffset({
             lat: mapReference?.getCenter()?.lat() ?? mapCenter.lat,
             lng: mapReference?.getCenter()?.lng() ?? mapCenter.lng
         }))
@@ -53,7 +53,6 @@ const Map = (({}: Props) => {
                 recordCurrentCenter()
             }}
             options={{center: mapCenter}}
-            // center={mapCenter}
             zoom={zoomLevel}
             clickableIcons={false}
             mapContainerStyle={{height: "100%", width: "100%"}}

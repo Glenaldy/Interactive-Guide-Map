@@ -61,6 +61,9 @@ export const placeSlice = createSlice({
         setMapCenter: (state, action: PayloadAction<{ lat: number, lng: number }>) => {
             state.mapCenter = centerOffset(state.zoomLevel, action.payload, state.map)
         },
+        setMapCenterNoOffset: (state, action: PayloadAction<{ lat: number, lng: number }>) => {
+            state.mapCenter = action.payload
+        },
         setPlaceDatabase: (state, action: PayloadAction<Array<Place>>) => {
             state.placeDatabase = action.payload
         },
@@ -84,6 +87,7 @@ export const {
     setClickedPlace,
     setCurrentArticle,
     setMapCenter,
+    setMapCenterNoOffset,
     setPlaceDatabase,
     setArticleDatabase,
     setZoomLevel,
