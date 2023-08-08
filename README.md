@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Interactive Travel Guide Map
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="public/logo-full.svg" alt="WaymarkJapan Logo" style="width:300px;"/>
 
-## Available Scripts
+This project is live at [Waymark Japan](https://interactive-guide-map-587206baba62.herokuapp.com/).
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+The Way Mark Japan Travel Guide and Map Application is a project designed to address the challenges faced by travelers in accessing both descriptive and spatial information seamlessly during travel planning.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Simultaneous Guide and Map Viewing**: Users can view both the travel guide article and interactive map on the same page, eliminating the need to switch between different tabs or pages.
 
-### `npm test`
+- **Interactive Maps**: The application utilizes Google Maps API to provide users with interactive maps that can be zoomed, panned, and clicked on for more information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Special Text Interaction**: The application enables users to interact directly with special text of place name within the guide article.
 
-### `npm run build`
+## Why This Project?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I created this project due to my personal problem of searching information for travel in Japan. I like to use travel guide websites to gather information, but with the need to switch between Google Maps and the guide, I was inspired to solve this problem myself.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Please note that the provided URLs might change in the future due to hosting or repository changes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contact Information
 
-### `npm run eject`
+For inquiries, please contact me at my [email](glenaldys@glen.work).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Running the Application Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run the appplication locally, you'll need to set up the backend from [Server-For-Interactive-Guide-Map](https://github.com/Glenaldy/Server-For-Interactive-Guide-Map) and set up environment variables to configure the application properly.
+1. Clone and setup the backend server from [Server-For-Interactive-Guide-Map](https://github.com/Glenaldy/Server-For-Interactive-Guide-Map)
+2. Clone this repository to your local machine:
+   ```sh
+   git clone https://github.com/Glenaldy/Interactive-Guide-Map.git
+   ```
+3. Navigate to the project directory:
+    ```sh
+   cd interactive-travel-guide-map
+   ```
+4. Create a `.env` and set the following environment variables:
+    ```
+   REACT_APP_MAPS_API_KEY=your-google-maps-api-key
+   REACT_APP_BACKEND_SERVER_URL=local-back-end-url
+   REACT_APP_BACKEND_SERVER_API_KEY=your-setup-backend-password
+   ```
+5. Install the project dependencies:
+    ```sh
+   npm install
+   ```
+6. Build the application and run:
+    ```she
+    npm run build
+    npm run start
+    ```
