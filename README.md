@@ -2,8 +2,6 @@
 
 <img src="public/logo-full.svg" alt="WaymarkJapan Logo" style="width:300px; background-color: white; padding: 15px;"/>
 
----
-
 ## Introduction
 
 This project is live at [Waymark Japan](https://interactive-guide-map-587206baba62.herokuapp.com/).
