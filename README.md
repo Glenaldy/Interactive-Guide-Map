@@ -6,7 +6,7 @@
 
 This project is live at [Waymark Japan](https://interactive-guide-map-587206baba62.herokuapp.com/).
 
-The Way Mark Japan Travel Guide and Map Application is a project designed to address the challenges faced by travelers
+The Waymark Japan Travel Guide and Map Application is a project designed to address the challenges faced by travelers
 in accessing both descriptive and spatial information seamlessly during travel planning.
 
 The application was created using React and Google Maps API.
